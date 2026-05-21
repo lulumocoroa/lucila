@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Etiquetas ARIA</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#0f172a;
+    color:white;
+    padding:40px;
+}
+
+section{
+    background:#1e293b;
+    padding:40px;
+    border-radius:25px;
+    max-width:1200px;
+    margin:auto;
+}
+
+h1{
+    color:#38bdf8;
+}
+
+code{
+    display:block;
+    background:black;
+    color:#00ff88;
+    padding:20px;
+    border-radius:12px;
+    margin-top:20px;
+}
+
+.media-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.media-box{
+    overflow:hidden;
+    border-radius:20px;
+    transition:0.35s;
+}
+
+.media-box:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+}
+
+.media-box img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.youtube-card{
+    display:block;
+    background:#020617;
+    border-radius:20px;
+    overflow:hidden;
+    text-decoration:none;
+    color:white;
+    transition:0.35s;
+}
+
+.youtube-card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+}
+
+.youtube-card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.youtube-info{
+    padding:20px;
+}
+
+.boton{
+    display:inline-block;
+    margin-top:30px;
+    background:#38bdf8;
+    color:black;
+    padding:14px 24px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section aria-labelledby="titulo-aria">
+
+<h1 id="titulo-aria">
+¿Qué son las etiquetas ARIA?
+</h1>
+
+<p>
+Las etiquetas ARIA ayudan a los lectores de pantalla.
+</p>
+
+<code>
+&lt;button aria-label="Cerrar menú"&gt;X&lt;/button&gt;
+</code>
+
+<div class="media-grid">
+
+<div class="media-box">
+
+<img
+src="foto7.png"
+alt="Ejemplo de etiquetas ARIA">
+
+</div>
+
+<div class="media-box">
+
+<img
+src="foto8.jpg"
+alt="Interfaz accesible con ARIA">
+
+</div>
+
+<a
+href="https://www.youtube.com/watch?v=zizJLIQ-a3E"
+target="_blank"
+class="youtube-card"
+aria-label="Abrir video sobre etiquetas ARIA">
+
+<img
+src="https://img.youtube.com/vi/zizJLIQ-a3E/maxresdefault.jpg"
+alt="Miniatura del video sobre ARIA">
+
+<div class="youtube-info">
+
+<h3>
+Video sobre etiquetas ARIA
+</h3>
+
+<p>
+Explicación sobre accesibilidad web.
+</p>
+
+</div>
+
+</a>
+
+</div>
+
+<a
+href="index.html"
+class="boton"
+aria-label="Volver al inicio">
+
+Volver al inicio
+
+</a>
+
+</section>
+
+</body>
+</html>
