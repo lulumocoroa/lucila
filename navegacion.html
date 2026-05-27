@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>¿Cómo navegan?</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#0f172a;
+    color:white;
+    padding:40px;
+}
+
+section{
+    background:#1e293b;
+    padding:40px;
+    border-radius:25px;
+    max-width:1200px;
+    margin:auto;
+}
+
+h1{
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+
+.card{
+    background:#020617;
+    padding:25px;
+    border-radius:15px;
+    transition:0.35s;
+}
+
+.card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+}
+
+.media-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.media-box{
+    overflow:hidden;
+    border-radius:20px;
+    transition:0.35s;
+}
+
+.media-box:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+}
+
+.media-box img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.youtube-card{
+    display:block;
+    background:#020617;
+    border-radius:20px;
+    overflow:hidden;
+    text-decoration:none;
+    color:white;
+    transition:0.35s;
+}
+
+.youtube-card:hover{
+
+    transform:
+    translateY(-10px)
+    scale(1.03);
+
+}
+
+.youtube-card img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+}
+
+.youtube-info{
+    padding:20px;
+}
+
+.boton{
+    display:inline-block;
+    margin-top:30px;
+    background:#38bdf8;
+    color:black;
+    padding:14px 24px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.voice-controls{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.voice-button{
+    background:rgb(33, 140, 202);
+    border:none;
+    padding:15px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section aria-labelledby="titulo-nav">
+
+<h1 id="titulo-nav">
+¿Cómo navegan por internet?
+</h1>
+
+<p>
+Las personas no videntes utilizan lectores de pantalla y navegación mediante teclado.
+</p>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Navegación por teclado</h3>
+
+<p>
+Toda la página debe poder utilizarse sin mouse.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Texto alternativo</h3>
+
+<p>
+Las imágenes necesitan descripciones ALT.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Estructura clara</h3>
+
+<p>
+Los títulos deben estar organizados correctamente.
+</p>
+
+</div>
+
+</div>
+
+<div class="media-grid">
+
+<div class="media-box">
+
+<img
+src="foto1.avif"
+alt="Persona navegando con tecnología accesible">
+
+</div>
+
+<div class="media-box">
+
+<img
+src="foto2.jpg"
+alt="Persona utilizando lector de pantalla">
+
+</div>
+
+<a
+href="https://www.youtube.com/watch?v=3f31oufqFSM"
+target="_blank"
+class="youtube-card"
+aria-label="Abrir video sobre navegación accesible">
+
+<img
+src="https://img.youtube.com/vi/3f31oufqFSM/maxresdefault.jpg"
+alt="Miniatura del video de accesibilidad">
+
+<div class="youtube-info">
+
+<h3>
+Cómo navegan personas no videntes
+</h3>
+
+<p>
+Video explicativo sobre accesibilidad digital.
+</p>
+
+</div>
+
+</a>
+
+</div>
+
+<a
+href="index.html"
+class="boton"
+aria-label="Volver al inicio">
+
+Volver al inicio
+
+</a>
+
+</section>
+
+<div class="voice-controls">
+
+<button
+class="voice-button"
+onclick="leerContenido()"
+aria-label="Escuchar contenido">
+
+🔊 Escuchar
+
+</button>
+
+<button
+class="voice-button"
+onclick="pausarLectura()"
+aria-label="Pausar lectura">
+
+⏸️ Pausar
+
+</button>
+
+</div>
+
+<script>
+
+let vozActual;
+
+function leerContenido(){
+
+    const texto = document.body.innerText;
+
+    vozActual = new SpeechSynthesisUtterance(texto);
+
+    vozActual.lang = "es-ES";
+
+    speechSynthesis.cancel();
+
+    speechSynthesis.speak(vozActual);
+
+}
+
+function pausarLectura(){
+
+    if(speechSynthesis.speaking && !speechSynthesis.paused){
+
+        speechSynthesis.pause();
+
+    }else if(speechSynthesis.paused){
+
+        speechSynthesis.resume();
+
+    }
+
+}
+
+</script>
+</body>
+</html>
